@@ -21,3 +21,24 @@ app.use(bodyParser.json({ type: 'application/vnd.api+json' }));
 app.listen(PORT, function () {
 	console.log('App listening on PORT ' + PORT);
 });
+
+
+
+// ===========================================================
+// Routes
+// ===========================================================
+
+// Displays The Html page containing Table data upon get request
+app.get('/tables', function (req, res) {
+	res.sendFile(path.join(__dirname, 'tables.html'));
+});
+
+// Displays The Html page containing reservation data upon get request
+app.get('/reservations', function (req, res) {
+	res.sendFile(path.join(__dirname, 'reservation.html'));
+});
+
+// Displays Home page by defualt or when parameters do not apply
+app.use('/', function (req, res) {
+	res.sendFile(path.join(__dirname, 'home.html'));
+});
