@@ -52,7 +52,20 @@
 </div>
 
 	</div>
-
+<script type="text/javascript">
+        var currentURL = window.location.origin;
+        console.log(currentURL + '/api');
+        $.get(currentURL + '/api', function (data) {
+            for (var i = 0; i < data.length; i++) {
+                var wellSection = $('<div>');
+                wellSection.addClass('well');
+                wellSection.attr('id', 'characterWell-' + i);
+                $('#wellSection').append(wellSection);
+                $('#characterWell-' + i).append('<h2>' + data[i].name + '</h2>');
+              
+            }
+        });
+    </script>
 
 </body>
 </html>
