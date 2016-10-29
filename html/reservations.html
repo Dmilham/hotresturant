@@ -51,12 +51,32 @@
                 <input type="text" class="form-control" id="id">
       </div>
 
-     <button type="submit" class="btn btn-primary submit">Submit</button>
+     <button type="submit" class="btn btn-primary submit" id="addBtn">Submit</button>
     </div>
 </div>
 
 	</div>
 
+  <script type="text/javascript">
+        // Question: What does this code do?
+        $('#addBtn').on('click', function () {
+            var newCustomer = {
+                name: $('#name').val().trim(),
+                role: $('#phone').val().trim(),
+                age: $('#email').val().trim(),
+                age: $('#id').val().trim(),
+              
+            };
+            var currentURL = window.location.origin;
+            // Question: What does this code do??
+            $.post(currentURL + '/api/new', newCustomer)
+                .done(function (data) {
+                    console.log(data);
+                    alert('Adding customer...');
+                });
+            return false;
+        });
+    </script>
 
 </body>
 </html>
