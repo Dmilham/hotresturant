@@ -52,8 +52,15 @@ app.use('/', function (req, res) {
 // the requestor has a reservation (or is on the waiting list).
 // * You should be using Postman to do all your testing at this point.
 // Create New Characters - takes in JSON input
+
 app.post('/api/new', function (req, res) {
 	var newreservation = req.body;
+
+	var name = $("#name").val().trim();
+	var phone = $("#phone").val().trim();
+	var email = $("#email").val().trim();
+	var uniqueid = $("#id").val().trim();
+
 	newreservation.uniqueid = newreservation.uniqueid.replace(/\s+/g, '').toLowerCase();
 
 	console.log(newreservation);
@@ -67,6 +74,7 @@ app.post('/api/new', function (req, res) {
 
 
 // LISTENER
+// This is a listener comment.
 app.listen(PORT, function () {
 	console.log('App listening on PORT ' + PORT);
 });
